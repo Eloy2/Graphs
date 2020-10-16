@@ -87,6 +87,8 @@ class Graph:
 
         This should be done using recursion.
         """
+        # There is no base case here. Every stack frame will return none once the problem has been broken down. 
+        # As each stack frame is called the print(starting_vertex) will print each vertex. Which is what we want.
         visited.add(starting_vertex)
         print(starting_vertex)
         for neighbor in self.get_neighbors(starting_vertex):
@@ -185,12 +187,12 @@ class Graph:
         """
         visited.add(starting_vertex)
         path = path + [starting_vertex]
-        if starting_vertex == destination_vertex:
+        if starting_vertex == destination_vertex: # Base case
             return path
         for neighbor in self.get_neighbors(starting_vertex):
             if neighbor not in visited:
                 new_path = self.dfs_recursive(neighbor, destination_vertex, path, visited)
-                if new_path:
+                if new_path: # will return after base case
                     return new_path
 
 if __name__ == '__main__':
