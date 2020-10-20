@@ -82,7 +82,7 @@ class SocialGraph:
             current_vertex = path[-1]
 
             if current_vertex not in visited:
-                visited[current_vertex] = path
+                visited[current_vertex] = path # add the current vertext to the visited dict and set the current path as the value
             
             for neighbor in self.friendships[current_vertex]:
                 if neighbor not in visited:
